@@ -22,8 +22,7 @@ app.route("/:id").post(middleware, async (req, res) => {
       res.status(400).send({ error: "Required post is not present" });
     }
   } catch (error) {
-    console.log(error);
-    // res.status(500).send({ message: "Internal sever error" });
+    res.status(500).send({ message: "Internal sever error" });
   }
 });
 

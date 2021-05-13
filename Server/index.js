@@ -22,6 +22,7 @@ app.use("/login", require("./users/login"));
 app.use("/posts/create", require("./posts/create"));
 app.use("/posts/update", require("./posts/update"));
 app.use("/posts/delete", require("./posts/delete"));
+app.use("/posts/get", require("./posts/get"));
 
 app.get("/check", (req, res) => {
   res.send("check");

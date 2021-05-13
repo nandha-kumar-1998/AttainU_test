@@ -5,10 +5,6 @@ const users = require("../models/users");
 const jwt = require("jsonwebtoken");
 const secret = "123456";
 
-app.route("/").get(async (req, res) => {
-  res.send("hello");
-});
-
 app.route("/").post(async (req, res) => {
   try {
     const { email, password } = req.body;
