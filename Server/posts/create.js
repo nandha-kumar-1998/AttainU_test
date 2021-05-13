@@ -29,7 +29,7 @@ app.route("/").post(async (req, res) => {
       res.redirect(301, "http://localhost:3000/login");
     }
   } catch (error) {
-    console.log(error);
+    res.status(500).send({ error: "Inernal server error" });
   }
 });
 

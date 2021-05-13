@@ -19,6 +19,7 @@ app.use(
 );
 
 app.use("/login", require("./users/login"));
+app.use("/register", require("./users/register"));
 app.use("/posts/create", require("./posts/create"));
 app.use("/posts/update", require("./posts/update"));
 app.use("/posts/delete", require("./posts/delete"));

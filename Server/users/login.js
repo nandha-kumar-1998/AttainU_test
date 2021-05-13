@@ -1,16 +1,18 @@
-const { response } = require("express");
 const express = require("express");
 const app = express.Router();
 const users = require("../models/users");
 const jwt = require("jsonwebtoken");
 const secret = "123456";
+const bcrypt = require("bcrypt");
 
 app.route("/").post(async (req, res) => {
   try {
     const { email, password } = req.body;
     const checkEmail = await users.findOne({ email });
     if (checkEmail) {
-      if (checkEmail.password === password) {
+      const unhash = await bcrypt.compare(password, checkEmail.password);
+
+      if (unhash) {
         const jsonwebtoken = await jwt.sign({ data: checkEmail._id }, secret, {
           expiresIn: "1h",
         });
